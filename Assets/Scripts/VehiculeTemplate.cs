@@ -13,8 +13,6 @@ public class VehiculeTemplate : MonoBehaviour
     // Variable rotation speed of the car
     public float rotationForce = 20.0f;
     public float steering;
-    // var for the lifes of the car
-    public int lifePoint = 3;
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -39,6 +37,16 @@ public class VehiculeTemplate : MonoBehaviour
 
             // collision.gameObject.transform.Translate(Vector3.up * Time.deltaTime * speed); Fonction + ou -
         }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.CompareTag("LavaTrap"))
+        {      
+            
+        }              
+
     }
 
 }

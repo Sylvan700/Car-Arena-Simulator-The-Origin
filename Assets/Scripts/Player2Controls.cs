@@ -5,9 +5,9 @@ using UnityEngine;
 public class Player2Controls : VehiculeTemplate
 {
 
+
     //void Start()
     //{
-
 
     //}
 
