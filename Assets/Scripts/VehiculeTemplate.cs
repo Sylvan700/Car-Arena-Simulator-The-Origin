@@ -5,6 +5,8 @@ using UnityEngine;
 public class VehiculeTemplate : MonoBehaviour
 {
 
+    public Dictionary<int, string> vehicules = new Dictionary<int, string>();
+    
     // Weird "instanciation/declaration" of our rigidbody  
     public Rigidbody2D bodyCar;
     // Variable vertical speed of the car
@@ -13,31 +15,28 @@ public class VehiculeTemplate : MonoBehaviour
     // Variable rotation speed of the car
     public float rotationForce = 20.0f;
     public float steering;
+    // var for the lifes of the car
+    public string characters;
+    public int index;
 
-    public void OnCollisionEnter2D(Collision2D collision)
+
+
+    public void Start()
+    {
+        vehicules.Add(0, "Sodic");
+    }
+
+    public void Update()
     {
 
-        //Rigidbody2D rigidbody2D = new Rigidbody2D();
-
-        //rigidbody2D.GetComponent<Rigidbody2D>();
-
-        Debug.Log("ça marche lol");
-
-        //if (collision.gameObject.tag == "PlayerTwo" || collision.gameObject.tag == "PlayerOne")
+        switch (vehicules[index])
         {
+            case "Sodic":
 
-            // rigidbody2D.AddRelativeForce(Vector3.up * Time.deltaTime * speed);
-
-            // collision.rigidbody.AddRelativeForce(Vector3.up * Time.deltaTime * speed);
-
-            // ForceMode2D.Impulse
-
-            //collision.contacts[0].
-            //collision.rigidbody.AddForce(Vector3.up * speed / 100, ForceMode2D.Impulse);
-
-            // collision.gameObject.transform.Translate(Vector3.up * Time.deltaTime * speed); Fonction + ou -
+                break;
         }
     }
+   
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
