@@ -7,20 +7,14 @@ public class VehiculeTemplate : MonoBehaviour
 
     // Weird "instanciation/declaration" of our rigidbody  
     public Rigidbody2D bodyCar;
-
     // Variable vertical speed of the car
     public float speed = 200.0f;
     public float maxSpeed;
     // Variable rotation speed of the car
-    public float rotationForce = 20.0F;
+    public float rotationForce = 20.0f;
     public float steering;
     // var for the lifes of the car
     public int lifePoint = 3;
-
-    public void Start()
-    {
-        // bodyCar.GetComponent<Rigidbody2D>();
-    }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -31,7 +25,7 @@ public class VehiculeTemplate : MonoBehaviour
 
         Debug.Log("ça marche lol");
 
-        if (collision.gameObject.tag == "Vehicule")
+        //if (collision.gameObject.tag == "PlayerTwo" || collision.gameObject.tag == "PlayerOne")
         {
 
             // rigidbody2D.AddRelativeForce(Vector3.up * Time.deltaTime * speed);

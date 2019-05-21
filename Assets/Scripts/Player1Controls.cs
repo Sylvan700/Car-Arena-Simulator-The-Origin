@@ -5,14 +5,6 @@ using UnityEngine;
 public class Player1Controls : VehiculeTemplate
 {
 
-    void Start()
-    {
-
-        // Classic Unity's assignation in order to create a variable of the rigidbody and therefore manipulate it 
-        bodyCar = GetComponent<Rigidbody2D>();
-
-    }
-
     // Fixed Update is an Update at 50 frames per second mainly used for physics interactions in the unity engine
     // The function is called after the basic Update one right above
     /// <summary>
@@ -61,12 +53,4 @@ public class Player1Controls : VehiculeTemplate
 
     }
 
-    // Tentative de collision, pas fonctionel actuellement
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Vehicule")
-        {
-            //bodyCar.AddForce(relativeForce, ForceMode2D.Impulse);
-        }
-    }
 }
