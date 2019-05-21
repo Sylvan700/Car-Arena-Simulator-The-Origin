@@ -209,11 +209,12 @@ GameObject:
   m_Component:
   - component: {fileID: 80665903}
   - component: {fileID: 80665902}
-  - component: {fileID: 80665901}
   - component: {fileID: 80665900}
+  - component: {fileID: 80665904}
+  - component: {fileID: 80665901}
   m_Layer: 0
   m_Name: PlayerOne
-  m_TagString: Untagged
+  m_TagString: Vehicule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -230,17 +231,17 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 1.5
+  m_LinearDrag: 1.5
+  m_AngularDrag: 10
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
---- !u!61 &80665901
-BoxCollider2D:
+--- !u!60 &80665901
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -256,15 +257,93 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 9.94, y: 7.04}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.59556496, y: -1.1110965}
+      - {x: 0.5507037, y: -0.7849708}
+      - {x: 0.45855844, y: -0.4994198}
+      - {x: 0.34603134, y: -0.474261}
+      - {x: 0.3262883, y: -0.40846783}
+      - {x: 0.4786094, y: -0.31954342}
+      - {x: 0.49701738, y: -0.14014411}
+      - {x: 0.49497715, y: 0.09617007}
+      - {x: 0.48502296, y: 0.27552462}
+      - {x: 0.449506, y: 0.44640356}
+      - {x: 0.4254639, y: 0.63718575}
+      - {x: 0.46462047, y: 0.8065961}
+      - {x: 0.51783264, y: 1.3706759}
+      - {x: 0.47377673, y: 2.013818}
+      - {x: 0.39810294, y: 2.0202436}
+      - {x: 0.24418305, y: 1.8468081}
+      - {x: 0.078945525, y: 1.8230879}
+      - {x: 0.031330638, y: 1.6159058}
+      - {x: -0.12213314, y: 1.60746}
+      - {x: -0.16741623, y: 1.9439323}
+      - {x: -0.2511116, y: 1.9910445}
+      - {x: -0.3339097, y: 1.9365898}
+      - {x: -0.384243, y: 1.5995805}
+      - {x: -0.5337743, y: 1.6078774}
+      - {x: -0.57842463, y: 1.8156036}
+      - {x: -0.66664904, y: 1.8444451}
+      - {x: -0.771534, y: 1.8518325}
+      - {x: -0.89100933, y: 2.0143101}
+      - {x: -0.94856435, y: 2.0021744}
+      - {x: -0.99145675, y: 1.7267091}
+      - {x: -0.99421793, y: 1.6658211}
+      - {x: -0.9997407, y: 1.6164948}
+      - {x: -1.0071003, y: 1.4831195}
+      - {x: -1.0066661, y: 1.4366332}
+      - {x: -1.0056148, y: 1.4133083}
+      - {x: -1.0072174, y: 1.3943291}
+      - {x: -1.0080932, y: 1.3909299}
+      - {x: -1.0059239, y: 1.3265456}
+      - {x: -1.0027034, y: 1.2735443}
+      - {x: -1.0025479, y: 1.0820315}
+      - {x: -0.9685828, y: 0.8065665}
+      - {x: -0.9473418, y: 0.706438}
+      - {x: -0.92346483, y: 0.56496704}
+      - {x: -0.9725199, y: 0.32999462}
+      - {x: -0.97779536, y: 0.26165947}
+      - {x: -0.9987726, y: 0.0595017}
+      - {x: -0.9881307, y: -0.2910075}
+      - {x: -0.83787054, y: -0.39539245}
+      - {x: -0.8371483, y: -0.4683122}
+      - {x: -0.96149874, y: -0.48750734}
+      - {x: -1.025771, y: -0.6930122}
+      - {x: -1.0690228, y: -0.9489691}
+      - {x: -1.0940605, y: -1.2040832}
+      - {x: -1.058948, y: -1.4199722}
+      - {x: -1.0174437, y: -1.4833503}
+      - {x: -0.98466086, y: -1.5508431}
+      - {x: -0.9333826, y: -1.6565325}
+      - {x: -0.8584957, y: -1.7842798}
+      - {x: -0.7629366, y: -1.8871067}
+      - {x: -0.6200003, y: -1.881732}
+      - {x: -0.5780757, y: -1.834918}
+      - {x: -0.49134642, y: -1.8417313}
+      - {x: -0.44711384, y: -1.8575795}
+      - {x: -0.41596088, y: -1.8643335}
+      - {x: -0.3700001, y: -1.8775578}
+      - {x: -0.26060116, y: -1.8810986}
+      - {x: -0.17137395, y: -1.8908341}
+      - {x: -0.11725243, y: -1.8855414}
+      - {x: -0.0773678, y: -1.8770806}
+      - {x: -0.03526421, y: -1.8814713}
+      - {x: 0.023233207, y: -1.8586606}
+      - {x: 0.0852641, y: -1.8370949}
+      - {x: 0.13000001, y: -1.8836554}
+      - {x: 0.2603005, y: -1.8936594}
+      - {x: 0.33857006, y: -1.824631}
+      - {x: 0.3988708, y: -1.7521884}
+      - {x: 0.495195, y: -1.5512308}
+      - {x: 0.5432333, y: -1.4417022}
+      - {x: 0.5855649, y: -1.2485346}
 --- !u!212 &80665902
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -302,10 +381,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: f8735953e3f973e4cbc7a59b1c9ad62c, type: 3}
-  m_Color: {r: 0.9150943, g: 0.2719384, b: 0.2719384, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 796992e221c207d46979255b026b6300, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -320,13 +399,32 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80665899}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 7.98, y: 0.00000047841996, z: 0}
-  m_LocalScale: {x: 0.22500001, y: 0.479375, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -8.741, y: -0.04, z: 0}
+  m_LocalScale: {x: 0.1592455, y: -0.1279332, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!114 &80665904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80665899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82f4998aa0a66a64a96a1e90330afde7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bodyCar: {fileID: 80665900}
+  speed: 450
+  maxSpeed: 200
+  rotationForce: 25
+  steering: 10
+  lifePoint: 3
+  startForce: {x: 0, y: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,8 +605,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!60 &1580625834
-PolygonCollider2D:
+--- !u!70 &1580625834
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -520,49 +618,9 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.5, y: -0.5}
-      - {x: -0.5976118, y: -0.4676318}
-      - {x: -0.67532957, y: -0.42317268}
-      - {x: -0.74180233, y: -0.35991967}
-      - {x: -0.77559674, y: -0.314591}
-      - {x: -0.8143064, y: -0.25160939}
-      - {x: -0.8442399, y: -0.17386284}
-      - {x: -0.8641459, y: -0.083953895}
-      - {x: -0.8716798, y: -0.00073013036}
-      - {x: -0.8631982, y: 0.08983826}
-      - {x: -0.83721143, y: 0.18834071}
-      - {x: -0.8059043, y: 0.25992927}
-      - {x: -0.7595625, y: 0.3291647}
-      - {x: -0.65023255, y: 0.43361467}
-      - {x: -0.5, y: 0.5}
-      - {x: 0.5, y: 0.5}
-      - {x: 0.63495386, y: 0.44215107}
-      - {x: 0.69604284, y: 0.397548}
-      - {x: 0.7546196, y: 0.33512488}
-      - {x: 0.81119126, y: 0.249259}
-      - {x: 0.83814853, y: 0.1793101}
-      - {x: 0.85911083, y: 0.096960075}
-      - {x: 0.8666361, y: -0.0007505716}
-      - {x: 0.8585757, y: -0.101990834}
-      - {x: 0.83652157, y: -0.17951739}
-      - {x: 0.8031826, y: -0.26063207}
-      - {x: 0.7520533, y: -0.33752096}
-      - {x: 0.7244636, y: -0.37783223}
-      - {x: 0.6586101, y: -0.43098715}
-      - {x: 0.5876023, y: -0.46979368}
-      - {x: 0.5, y: -0.5}
+  m_Offset: {x: -0.0024696938, y: -0.00039767544}
+  m_Size: {x: 1.7344233, y: 1.005408}
+  m_Direction: 1
 --- !u!212 &1580625836
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -639,9 +697,10 @@ GameObject:
   - component: {fileID: 2113818982}
   - component: {fileID: 2113818981}
   - component: {fileID: 2113818980}
+  - component: {fileID: 2113818984}
   m_Layer: 0
   m_Name: PlayerTwo
-  m_TagString: Untagged
+  m_TagString: Vehicule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -658,14 +717,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 1.5
+  m_LinearDrag: 1.5
+  m_AngularDrag: 10
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &2113818981
 BoxCollider2D:
@@ -680,18 +739,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.24651745, y: 0.06612253}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 9.94, y: 7.04}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.68965, y: 3.9368615}
   m_EdgeRadius: 0
 --- !u!212 &2113818982
 SpriteRenderer:
@@ -730,10 +789,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: f8735953e3f973e4cbc7a59b1c9ad62c, type: 3}
-  m_Color: {r: 0.08566215, g: 0.7264151, b: 0.14040314, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 796992e221c207d46979255b026b6300, type: 3}
+  m_Color: {r: 1, g: 0.3537736, b: 0.3537736, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -749,9 +808,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113818979}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -8.444, y: -0, z: 0}
-  m_LocalScale: {x: 0.22500001, y: 0.479375, z: 1}
+  m_LocalPosition: {x: 8.741, y: -0.039, z: 0}
+  m_LocalScale: {x: 0.15924554, y: -0.1279332, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &2113818984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113818979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415556bebe3a9f84287fb7fc81cace1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bodyCar: {fileID: 2113818980}
+  speed: 450
+  maxSpeed: 200
+  rotationForce: 25
+  steering: 10
+  lifePoint: 3
+  startForce: {x: 0, y: 0}
