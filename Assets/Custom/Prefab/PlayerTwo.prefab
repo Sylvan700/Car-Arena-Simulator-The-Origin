@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2620700896718001237}
   - component: {fileID: 2620700896718001238}
   - component: {fileID: 2620700896718001239}
-  - component: {fileID: 2620700896718001243}
+  - component: {fileID: 3766187643066088905}
   m_Layer: 0
   m_Name: PlayerTwo
   m_TagString: PlayerTwo
@@ -129,7 +129,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &2620700896718001243
+--- !u!114 &3766187643066088905
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,12 +138,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2620700896718001232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 415556bebe3a9f84287fb7fc81cace1c, type: 3}
+  m_Script: {fileID: 11500000, guid: 82f4998aa0a66a64a96a1e90330afde7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bodyCar: {fileID: 2620700896718001239}
   speed: 450
-  maxSpeed: 1000
+  maxSpeed: 200
   rotationForce: 40
-  steering: 40
-  lifePoint: 3
+  steering: 10
+  player: {fileID: 2620700896718001232}

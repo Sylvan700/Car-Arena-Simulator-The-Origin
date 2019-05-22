@@ -15,15 +15,25 @@ public class VehiculeTemplate : MonoBehaviour
     // Variable rotation speed of the car
     public float rotationForce = 20.0f;
     public float steering;
-    // var for the lifes of the car
-    public string characters;
-    public int index;
+    protected int index;
+    public GameObject player;
+    public Collider2D collision;
+    public SpriteRenderer visual;
+    protected float inputX;
+    protected float inputY;
+    protected float inputAction;
+    //protected bool playerOneSelect;
+    //protected bool playerTwoSelect;
+    //protected bool playerThreeSelect;
+    //protected bool playerFourSelect;
 
 
 
     public void Start()
     {
         vehicules.Add(0, "Sodic");
+        vehicules.Add(1, "Loli");
+        //player.SetActive(false);
     }
 
     public void Update()
