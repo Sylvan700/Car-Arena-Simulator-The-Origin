@@ -224,4 +224,9 @@ MonoBehaviour:
   maxSpeed: 200
   rotationForce: 40
   steering: 10
-  lifePoint: 3
+  characters: 
+  index: 0
+  player: {fileID: 6752994739558629231}
+  inputX: 0
+  inputY: 0
+  inputAction: 0

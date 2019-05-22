@@ -8,11 +8,11 @@ public static class Manager
 
     public static int scorePlayer1;
     public static int scorePlayer2;
-    public static int hpPlayer1;
-    public static int hpPlayer2;
 
     public static string WinnerPlayer;
     public static WaitForSecondsRealtime timeBetween2Rounds;
+    public static WaitForSecondsRealtime timeCapacity;
+    public static WaitForSecondsRealtime cooldown;
 
 
     // It should change, could be modulable with more variables
