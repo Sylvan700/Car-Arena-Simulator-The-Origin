@@ -5,10 +5,115 @@ using UnityEngine;
 public class PlayerControls : VehiculeTemplate
 {
 
-    public void StartCoolDown()
+    public void Cooldown()
     {
-        //Manager.cooldown = new WaitForSecondsRealtime(10.0F);
+
     }
+
+    public void SwitchHero()
+    {
+
+        if (inputSwitch != 0)
+        {
+            if (index == vehicules.Count)
+                index = 0;
+            else { index++; }
+        }
+
+        // Change sprites, stats, ...
+
+    }
+
+    public void Capacity()
+    {
+
+        if (capacityIsActive)
+            timeCapacity += Time.deltaTime;
+
+        if (cooldownActive)
+            cooldown += Time.deltaTime;
+
+        switch (vehicules[index])
+        {
+            case "Sodic":
+
+                // Change sprites, stats, ...
+
+                if (inputAction != 0 && cooldown > 5) 
+                {
+
+                    // GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.2f);
+                    //visual = GetComponent<SpriteRenderer>();
+                    //visual.enabled = false;
+
+                    
+                    capacityIsActive = true;
+                    collision = GetComponent<Collider2D>();
+                    collision.isTrigger = true;
+
+                    cooldown = 0;
+
+                    // cooldownActive = true;       
+
+                }
+
+                if (timeCapacity > 1.0F)
+                {
+
+                    //GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
+      
+                    collision = GetComponent<Collider2D>();
+                    collision.isTrigger = false;
+                    capacityIsActive = false;
+                    timeCapacity = 0;
+
+                }
+
+                break;
+
+            case "Loli":
+
+                if (inputAction != 0 && cooldown > 7) 
+                {
+
+                    //GetComponent<SpriteRenderer>().color = new Color(100f, 100f, 100f, 100f);
+
+                    capacityIsActive = true;
+
+                    bodyCar = GetComponent<Rigidbody2D>();
+                    bodyCar.mass = 5;
+                    speed = 1000;
+
+                    cooldown = 0;
+
+                }
+
+                if (timeCapacity > 2.0F)
+                {
+
+                    // GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
+
+                    bodyCar.mass = 1.5F;
+                    speed = 450;
+
+                    capacityIsActive = false;
+
+                    timeCapacity = 0;
+
+                }
+
+                break;
+
+            case "":
+
+
+
+                break;
+
+        }    
+        
+    }
+
 
     new public void Update()
     {
@@ -17,92 +122,50 @@ public class PlayerControls : VehiculeTemplate
         {
 
             case "PlayerOne":
+
                 inputX = Input.GetAxis("Horizontal");
                 inputY = Input.GetAxis("Vertical");
                 inputAction = Input.GetAxis("Jump");
+                index = 0;
+
+                SwitchHero();
+                Capacity();        
+
                 break;
 
             case "PlayerTwo":
                 inputX = Input.GetAxis("Horizontal2");
                 inputY = Input.GetAxis("Vertical2");
                 inputAction = Input.GetAxis("Jump2");
+                index = 1;
+
+                SwitchHero();
+                Capacity();           
+
                 break;
 
             case "PlayerThree":
                 inputX = Input.GetAxis("Horizontal3");
                 inputY = Input.GetAxis("Vertical3");
                 inputAction = Input.GetAxis("Jump3");
+
+                SwitchHero();
+                Capacity();
+
                 break;
 
             case "PlayerFour":
                 inputX = Input.GetAxis("Horizontal4");
                 inputY = Input.GetAxis("Vertical4");
                 inputAction = Input.GetAxis("Jump4");
+
+                SwitchHero();
+                Capacity();
+
                 break;
 
         }
-
-        switch (vehicules[index])
-        {
-            case "Sodic":
-
-                if (inputAction != 0 /*&& !Manager.cooldown.keepWaiting*/)
-                {
-
-                    Manager.timeCapacity = new WaitForSecondsRealtime(0.8F);
-                    // GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.2f);
-                    //visual = GetComponent<SpriteRenderer>();
-                    //visual.enabled = false;
-                    collision = GetComponent<Collider2D>();
-                    collision.isTrigger = true;
-                    
-
-                    Debug.Log("ça marche");
-                    StartCoolDown();
-
-                }
-
-                if (!Manager.timeCapacity.keepWaiting)
-                {
-                    //GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
-                    collision = GetComponent<Collider2D>();
-                    collision.isTrigger = false;
-
-                }
-                break;
-
-            case "Loli":
-
-                if (inputAction != 0)/*&& !Manager.cooldown.keepWaiting*/
-                {
-
-                    //Manager.timeCapacity = new WaitForSecondsRealtime(0.8F);
-                    Manager.timeCapacity = new WaitForSecondsRealtime(3.0F);
-
-                   //GetComponent<SpriteRenderer>().color = new Color(100f, 100f, 100f, 100f);
-
-                    bodyCar = GetComponent<Rigidbody2D>();
-                    bodyCar.mass += 5;
-                    speed += 1000;
-
-
-                    // StartCoolDown();
-
-                }
-
-                if (!Manager.timeCapacity.keepWaiting)
-                {
-                    //GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
-                    bodyCar.mass -= 5;
-                    speed -= 1000;
-
-                }
-
-                break;
-
-
-
-        }
+        
     }
 
     // Fixed Update is an Update at 50 frames per second mainly used for physics interactions in the unity engine
@@ -114,7 +177,6 @@ public class PlayerControls : VehiculeTemplate
     {
         // It's variables from 0 to 1 depending of the player pressuring or not horizontals and verticals inputs. Z,Q,S,D for movement. space for action. up,left,right,down for movement. numpad "0" for action.
         // up,left,right,down for movement. numpad "0" for action.
-
 
 
         //rigidbody Y speed (vertical speed)
