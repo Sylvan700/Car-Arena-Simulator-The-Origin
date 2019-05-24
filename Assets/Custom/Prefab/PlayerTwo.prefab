@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2620700896718001236}
   - component: {fileID: 2620700896718001237}
-  - component: {fileID: 2620700896718001238}
   - component: {fileID: 2620700896718001239}
   - component: {fileID: 3766187643066088905}
   m_Layer: 0
@@ -82,32 +81,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2620700896718001238
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2620700896718001232}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 6aa974e03e4454a41898aaf82d5814c7, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.24651745, y: 0.06612253}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.94, y: 7.04}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.68965, y: 3.9368615}
-  m_EdgeRadius: 0
 --- !u!50 &2620700896718001239
 Rigidbody2D:
   serializedVersion: 4
@@ -147,3 +120,14 @@ MonoBehaviour:
   rotationForce: 40
   steering: 10
   player: {fileID: 2620700896718001232}
+  collision: {fileID: 0}
+  body: {fileID: 0}
+  visual: {fileID: 0}
+  skin1: {fileID: 0}
+  skin2: {fileID: 0}
+  skin3: {fileID: 0}
+  skin4: {fileID: 0}
+  timeCapacity: 0
+  cooldown: 0
+  capacityIsActive: 0
+  cooldownActive: 1

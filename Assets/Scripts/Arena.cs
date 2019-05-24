@@ -52,7 +52,7 @@ public class Arena : MonoBehaviour
         // Jusque là le plus simple pour réinitialiser les positions. A voir les contraintes       
 
         // Reset the scene after each point
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
 
         // A timer after a victory
         // Manager.timeBetween2Rounds = new WaitForSecondsRealtime(timeBetween2Rounds);
@@ -74,7 +74,7 @@ public class Arena : MonoBehaviour
 
             Manager.WinnerPlayer = "";
 
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
 
         }
     }

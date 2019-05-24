@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerControls : VehiculeTemplate
 {
-
     public void Cooldown()
     {
 
@@ -13,11 +12,60 @@ public class PlayerControls : VehiculeTemplate
     public void SwitchHero()
     {
 
-        if (inputSwitch != 0)
+        if (inputSwitch)
         {
             if (index == vehicules.Count)
                 index = 0;
+
             else { index++; }
+
+            if(index == 1)
+            {
+                bodyCar.mass = 2f;
+                speed = 450;
+            }
+            
+        }
+
+        if(index == 0)
+        {
+            visual = GetComponent<SpriteRenderer>();
+            body = GetComponent<CapsuleCollider2D>();
+
+            GetComponent<Sprite>();
+            visual.sprite = skin1;
+            transform.localScale = new Vector3(0.1592456f, -0.1279333f, 1.0f);
+            body.offset = new Vector2(-0.2479172f, 0.1459049f);
+            body.size = new Vector2(1.686367f, 4.281521f);
+            bodyCar.mass = 1.2f;
+            bodyCar.drag = 1.2f;
+            bodyCar.angularDrag = 20;
+            speed = 500;
+            maxSpeed = 150;
+            rotationForce = 100;
+            steering = 50;
+        }
+        if (index == 1)
+        {
+            visual = GetComponent<SpriteRenderer>();
+            GetComponent<Sprite>();
+            //visual.sprite = skin2;
+            transform.localScale = new Vector3(0.08363746f, -0.074713f, 1.0f);
+            body.offset = new Vector2(-6.490071f, 1.036186f);
+            body.size = new Vector2(5.119109f, 8.594376f);
+            bodyCar.drag = 2f;
+            bodyCar.angularDrag = 20;
+            maxSpeed = 150;
+            rotationForce = 100;
+            steering = 50;
+
+            visual = GetComponent<SpriteRenderer>();
+            GetComponent<Sprite>();
+            visual.sprite = skin2;
+        }
+        if(index == 2)
+        {
+
         }
 
         // Change sprites, stats, ...
@@ -37,13 +85,11 @@ public class PlayerControls : VehiculeTemplate
         {
             case "Sodic":
 
-                // Change sprites, stats, ...
-
                 if (inputAction != 0 && cooldown > 5) 
                 {
 
-                    // GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.2f);
-                    //visual = GetComponent<SpriteRenderer>();
+                    GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.2f);
+                   // visual = GetComponent<SpriteRenderer>();
                     //visual.enabled = false;
 
                     
@@ -60,7 +106,7 @@ public class PlayerControls : VehiculeTemplate
                 if (timeCapacity > 1.0F)
                 {
 
-                    //GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
+                    GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
       
                     collision = GetComponent<Collider2D>();
                     collision.isTrigger = false;
@@ -73,10 +119,19 @@ public class PlayerControls : VehiculeTemplate
 
             case "Loli":
 
+                if(inputY == 1f)
+                {
+                    visual.sprite = skin5;
+                }
+                else
+                {
+                    visual.sprite = skin2;
+                }
+
                 if (inputAction != 0 && cooldown > 7) 
                 {
 
-                    //GetComponent<SpriteRenderer>().color = new Color(100f, 100f, 100f, 100f);
+                   GetComponent<SpriteRenderer>().color = new Color(0f, 237f, 255f, 255f);
 
                     capacityIsActive = true;
 
@@ -91,9 +146,9 @@ public class PlayerControls : VehiculeTemplate
                 if (timeCapacity > 2.0F)
                 {
 
-                    // GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
+                    GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
 
-                    bodyCar.mass = 1.5F;
+                    bodyCar.mass = 2F;
                     speed = 450;
 
                     capacityIsActive = false;
@@ -104,7 +159,27 @@ public class PlayerControls : VehiculeTemplate
 
                 break;
 
-            case "":
+            case "Pope":
+
+
+                if (inputAction != 0 && cooldown > 7)
+                {
+
+                    //Instantiate(bumpCapacity, (Vector2)spawn, Quaternion.Euler(0, 0, Random.Range(-360f, 360f)));
+                    capacityIsActive = true;
+
+                    cooldown = 0;
+
+                }
+
+                if (timeCapacity > 2.0F)
+                {
+
+                    capacityIsActive = false;
+
+                    timeCapacity = 0;
+
+                }
 
 
 
@@ -126,7 +201,8 @@ public class PlayerControls : VehiculeTemplate
                 inputX = Input.GetAxis("Horizontal");
                 inputY = Input.GetAxis("Vertical");
                 inputAction = Input.GetAxis("Jump");
-                index = 0;
+                inputSwitch = Input.GetKeyDown(KeyCode.G);
+                
 
                 SwitchHero();
                 Capacity();        
@@ -137,7 +213,8 @@ public class PlayerControls : VehiculeTemplate
                 inputX = Input.GetAxis("Horizontal2");
                 inputY = Input.GetAxis("Vertical2");
                 inputAction = Input.GetAxis("Jump2");
-                index = 1;
+                // inputSwitch = Input.GetAxis("Change2");
+                
 
                 SwitchHero();
                 Capacity();           
@@ -148,6 +225,7 @@ public class PlayerControls : VehiculeTemplate
                 inputX = Input.GetAxis("Horizontal3");
                 inputY = Input.GetAxis("Vertical3");
                 inputAction = Input.GetAxis("Jump3");
+                // inputSwitch = Input.GetAxis("Change3");
 
                 SwitchHero();
                 Capacity();
@@ -158,6 +236,7 @@ public class PlayerControls : VehiculeTemplate
                 inputX = Input.GetAxis("Horizontal4");
                 inputY = Input.GetAxis("Vertical4");
                 inputAction = Input.GetAxis("Jump4");
+                // inputSwitch = Input.GetAxis("Change4");
 
                 SwitchHero();
                 Capacity();
