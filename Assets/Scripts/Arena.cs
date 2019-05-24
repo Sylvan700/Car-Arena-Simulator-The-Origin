@@ -12,7 +12,9 @@ public class Arena : MonoBehaviour
 
     void Start()
     {
-
+        Manager.MesJoueurs.Add("PlayerOne");
+        Manager.MesJoueurs.Add("PlayerTwo");
+        Manager.MesJoueurs.Add("PlayerThree");
     }
 
 
@@ -29,33 +31,50 @@ public class Arena : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
 
-        AddPointsAndReset(collision);
+        Destroy(collision.gameObject);
+
+        RemovePointsAndReset(collision);
 
         // A timer after a victory
         Manager.timeBetween2Rounds = new WaitForSecondsRealtime(timeBetween2Rounds);
 
     }
 
-    public static void AddPointsAndReset(Collider2D collision)
-    {
+    public static void RemovePointsAndReset(Collider2D collision)
+    {  
 
-        // Add scores if a player fall => Later, it will also do it for HP, not inside this function tho
         if (collision.CompareTag("PlayerOne"))
         {
-            Manager.scorePlayer2 += 1;
+            Manager.scorePlayer1 -= 1;
+            Manager.MesJoueurs.Remove("PlayerOne");
         }
-        else
+        if (collision.CompareTag("PlayerTwo"))
+        {         
+            Manager.scorePlayer2 -= 1;
+            Manager.MesJoueurs.Remove("PlayerTwo");
+        }
+        if (collision.CompareTag("PlayerThree"))
         {
-            Manager.scorePlayer1 += 1;
-        }
+            Manager.scorePlayer3 -= 1;
+            Manager.MesJoueurs.Remove("PlayerThree");
 
-        // Jusque là le plus simple pour réinitialiser les positions. A voir les contraintes       
+        }
+        //if (collision.CompareTag("PlayerFour"))
+        //{
+        //    Manager.scorePlayer4 -= 1;
+        //}
+
 
         // Reset the scene after each point
-        SceneManager.LoadScene(1);
 
-        // A timer after a victory
-        // Manager.timeBetween2Rounds = new WaitForSecondsRealtime(timeBetween2Rounds);
+        if (Manager.MesJoueurs.Count == 1)
+        {
+            Manager.MesJoueurs.Clear();
+            SceneManager.LoadScene(0);
+            // Manager.MesJoueurs.Clear();
+
+        }
+
 
 
     }
@@ -67,16 +86,33 @@ public class Arena : MonoBehaviour
     private void ResetTheGame()
     {
 
-        if ((Manager.scorePlayer1 >= numberOfRounds || Manager.scorePlayer2 >= numberOfRounds) && !Manager.timeBetween2Rounds.keepWaiting)
-        {
-            Manager.scorePlayer1 = 0;
-            Manager.scorePlayer2 = 0;
+        /*(Manager.scorePlayer1 >= numberOfRounds || Manager.scorePlayer2 >= numberOfRounds)*/
+        //if ((Manager.scorePlayer1 == 0 || Manager.scorePlayer2 == 0 || Manager.scorePlayer3 == 0 || Manager.scorePlayer4 == 0) && !Manager.timeBetween2Rounds.keepWaiting) 
+        //{
 
-            Manager.WinnerPlayer = "";
+        //    Manager.scorePlayer1 = 3;
+        //    Manager.scorePlayer2 = 3;
+        //    Manager.scorePlayer3 = 3;
+        //    Manager.scorePlayer4 = 3;
 
-            SceneManager.LoadScene(1);
+        //    Manager.WinnerPlayer = "";
 
-        }
+        //    SceneManager.LoadScene(0);
+
+        //}
+
+        //if (!Manager.timeBetween2Rounds.keepWaiting)
+        //{
+        //    Manager.scorePlayer1 = 3;
+        //    Manager.scorePlayer2 = 3;
+        //    Manager.scorePlayer3 = 3;
+        //    Manager.scorePlayer4 = 3;
+
+        //    Manager.WinnerPlayer = "";
+
+        //    SceneManager.LoadScene(0);
+        //}
+
     }
 
 

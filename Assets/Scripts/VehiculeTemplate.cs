@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,10 +24,7 @@ public class VehiculeTemplate : MonoBehaviour
     protected float inputY;
     protected float inputAction;
     protected float inputSwitch;
-    //protected bool playerOneSelect;
-    //protected bool playerTwoSelect;
-    //protected bool playerThreeSelect;
-    //protected bool playerFourSelect;
+
 
     public float timeCapacity=0;
     public float cooldown;
@@ -41,7 +39,10 @@ public class VehiculeTemplate : MonoBehaviour
 
         vehicules.Add(0, "Sodic");
         vehicules.Add(1, "Loli");
-        //player.SetActive(false);
+
+
+        //Manager.MesJoueurs.Add("PlayerThree");
+        //Manager.MesJoueurs.Add("PlayerFour");
 
     }
 

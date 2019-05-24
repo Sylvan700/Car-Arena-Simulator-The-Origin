@@ -35,6 +35,7 @@ public class PlayerControls : VehiculeTemplate
 
         switch (vehicules[index])
         {
+
             case "Sodic":
 
                 // Change sprites, stats, ...
@@ -128,6 +129,8 @@ public class PlayerControls : VehiculeTemplate
                 inputAction = Input.GetAxis("Jump");
                 index = 0;
 
+                Manager.nomPersoPlayer1 = player.name + "  " + vehicules[index];
+
                 SwitchHero();
                 Capacity();        
 
@@ -138,6 +141,8 @@ public class PlayerControls : VehiculeTemplate
                 inputY = Input.GetAxis("Vertical2");
                 inputAction = Input.GetAxis("Jump2");
                 index = 1;
+
+                Manager.nomPersoPlayer2 = player.name + "  " + vehicules[index];
 
                 SwitchHero();
                 Capacity();           

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MenuJoueursText : MonoBehaviour
+public class MenuJoueur3Text : MonoBehaviour
 {
     // Un Script par joueur ??? 
 
@@ -11,9 +11,8 @@ public class MenuJoueursText : MonoBehaviour
 
     void Start()
     {
+        
 
-        // personnageText.text = "coucou";
-        personnageText.text = Manager.nomPersoPlayer1;
 
     }
 
@@ -21,6 +20,8 @@ public class MenuJoueursText : MonoBehaviour
 
     void Update()
     {
-        
+
+        personnageText.text = Manager.nomPersoPlayer3;
+
     }
 }
