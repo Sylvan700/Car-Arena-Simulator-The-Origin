@@ -22,41 +22,33 @@ public class VehiculeTemplate : MonoBehaviour
     protected float inputX;
     protected float inputY;
     protected float inputAction;
+    protected float inputSwitch;
     //protected bool playerOneSelect;
     //protected bool playerTwoSelect;
     //protected bool playerThreeSelect;
     //protected bool playerFourSelect;
 
+    public float timeCapacity=0;
+    public float cooldown;
+
+    public bool capacityIsActive = false;
+    public bool cooldownActive = true;
+
 
 
     public void Start()
     {
+
         vehicules.Add(0, "Sodic");
         vehicules.Add(1, "Loli");
         //player.SetActive(false);
+
     }
 
     public void Update()
     {
 
-        // Jamais dans le update par contre OU par une alternative... Quoique
-        switch (vehicules[index])
-        {
-
-            // Inputs machin... E ou R1 ou jsp
-
-            case "Sodic":
-
-                Manager.nomPersoPlayer1 = "Sodic";
-
-                // On peut tout set ici finalement: la masse, les vitesses, ...                
-
-                
-
-
-
-                break;
-        }
+        
     }
    
 

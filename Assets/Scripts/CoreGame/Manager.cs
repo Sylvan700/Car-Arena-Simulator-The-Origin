@@ -12,9 +12,8 @@ public static class Manager
     public static string nomPersoPlayer2;
 
     public static string WinnerPlayer;
+
     public static WaitForSecondsRealtime timeBetween2Rounds;
-    public static WaitForSecondsRealtime timeCapacity;
-    public static WaitForSecondsRealtime cooldown;
 
     // public static Dictionary<string, VehiculeTemplate> characters;
 
