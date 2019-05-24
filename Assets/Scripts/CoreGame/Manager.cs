@@ -5,15 +5,18 @@ using UnityEngine;
 public static class Manager
 {
 
-
     public static int scorePlayer1;
     public static int scorePlayer2;
+
+    public static string nomPersoPlayer1;
+    public static string nomPersoPlayer2;
 
     public static string WinnerPlayer;
     public static WaitForSecondsRealtime timeBetween2Rounds;
     public static WaitForSecondsRealtime timeCapacity;
     public static WaitForSecondsRealtime cooldown;
 
+    // public static Dictionary<string, VehiculeTemplate> characters;
 
     // It should change, could be modulable with more variables
     public static void Main()
@@ -29,6 +32,19 @@ public static class Manager
         }
 
     }
+
+    //public static VehiculeTemplate PickCharacter(VehiculeTemplate vehicule)
+    //{
+
+    //    characters.Add("Sodic", vehicule);
+
+    //    // characters.Add("loli Driver")
+
+    //    vehicule.rotationForce = 90.0F;
+
+    //    return vehicule;
+
+    //}
 
 }
 

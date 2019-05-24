@@ -39,18 +39,25 @@ public class VehiculeTemplate : MonoBehaviour
     public void Update()
     {
 
+        // Jamais dans le update par contre OU par une alternative... Quoique
+        switch (vehicules[index])
+        {
 
+            // Inputs machin... E ou R1 ou jsp
+
+            case "Sodic":
+
+                Manager.nomPersoPlayer1 = "Sodic";
+
+                // On peut tout set ici finalement: la masse, les vitesses, ...                
+
+                
+
+
+
+                break;
+        }
     }
    
-
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-
-        if (collision.CompareTag("LavaTrap"))
-        {      
-            
-        }              
-
-    }
 
 }

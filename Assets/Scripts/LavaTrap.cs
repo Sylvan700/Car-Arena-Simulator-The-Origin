@@ -16,10 +16,19 @@ public class LavaTrap : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        
+        Debug.Log("Touched");
+
+        Arena.AddPointsAndReset(collision);
+
+        // HUGE pansement qui pue la merde
+        Manager.timeBetween2Rounds = new WaitForSecondsRealtime(3.0F);
 
     }
+
+
+
 }

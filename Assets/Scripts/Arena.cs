@@ -29,6 +29,16 @@ public class Arena : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
 
+        AddPointsAndReset(collision);
+
+        // A timer after a victory
+        Manager.timeBetween2Rounds = new WaitForSecondsRealtime(timeBetween2Rounds);
+
+    }
+
+    public static void AddPointsAndReset(Collider2D collision)
+    {
+
         // Add scores if a player fall => Later, it will also do it for HP, not inside this function tho
         if (collision.CompareTag("PlayerOne"))
         {
@@ -42,10 +52,11 @@ public class Arena : MonoBehaviour
         // Jusque là le plus simple pour réinitialiser les positions. A voir les contraintes       
 
         // Reset the scene after each point
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
 
         // A timer after a victory
-        Manager.timeBetween2Rounds = new WaitForSecondsRealtime(timeBetween2Rounds);
+        // Manager.timeBetween2Rounds = new WaitForSecondsRealtime(timeBetween2Rounds);
+
 
     }
 
@@ -63,7 +74,7 @@ public class Arena : MonoBehaviour
 
             Manager.WinnerPlayer = "";
 
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
 
         }
     }
