@@ -22,7 +22,7 @@ public class LavaTrap : MonoBehaviour
 
         Debug.Log("Touched");
 
-        Arena.AddPointsAndReset(collision);
+        Arena.RemovePointsAndReset(collision);
 
         // HUGE pansement qui pue la merde
         Manager.timeBetween2Rounds = new WaitForSecondsRealtime(3.0F);

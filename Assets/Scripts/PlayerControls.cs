@@ -83,6 +83,7 @@ public class PlayerControls : VehiculeTemplate
 
         switch (vehicules[index])
         {
+
             case "Sodic":
 
                 if (inputAction != 0 && cooldown > 5) 
@@ -204,6 +205,8 @@ public class PlayerControls : VehiculeTemplate
                 inputSwitch = Input.GetKeyDown(KeyCode.G);
                 
 
+                Manager.nomPersoPlayer1 = player.name + "  " + vehicules[index];
+
                 SwitchHero();
                 Capacity();        
 
@@ -215,6 +218,8 @@ public class PlayerControls : VehiculeTemplate
                 inputAction = Input.GetAxis("Jump2");
                 // inputSwitch = Input.GetAxis("Change2");
                 
+
+                Manager.nomPersoPlayer2 = player.name + "  " + vehicules[index];
 
                 SwitchHero();
                 Capacity();           
