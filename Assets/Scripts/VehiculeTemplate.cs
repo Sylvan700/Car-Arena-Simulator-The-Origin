@@ -45,7 +45,6 @@ public class VehiculeTemplate : MonoBehaviour
         vehicules.Add(0, "Sodic");
         vehicules.Add(1, "Loli");
         vehicules.Add(2, "Pope");
-        //player.SetActive(false);
 
     }
 

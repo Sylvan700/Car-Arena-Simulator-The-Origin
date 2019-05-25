@@ -7,7 +7,8 @@ public class Arena : MonoBehaviour
 {
     
     public int numberOfRounds = 3;
-    public float timeBetween2Rounds = 3.0F;
+    public float timeBetween2Rounds = 1.0F;
+    public bool EndOfGame = false;
 
 
     void Start()
@@ -19,9 +20,14 @@ public class Arena : MonoBehaviour
 
 
     void Update()
-    {
+    {        
 
         ResetTheGame();
+
+        if (Manager.MesJoueurs.Count <= 1 && !EndOfGame)
+        {
+            ResetTheRound();
+        }
 
     }
 
@@ -43,40 +49,36 @@ public class Arena : MonoBehaviour
     public static void RemovePointsAndReset(Collider2D collision)
     {  
 
-        if (collision.CompareTag("PlayerOne"))
+        if (collision.CompareTag("PlayerOne") && Manager.scorePlayer1 != 0)
         {
             Manager.scorePlayer1 -= 1;
             Manager.MesJoueurs.Remove("PlayerOne");
         }
-        if (collision.CompareTag("PlayerTwo"))
+        if (collision.CompareTag("PlayerTwo") && Manager.scorePlayer2 != 0)
         {         
             Manager.scorePlayer2 -= 1;
             Manager.MesJoueurs.Remove("PlayerTwo");
         }
-        if (collision.CompareTag("PlayerThree"))
+        if (collision.CompareTag("PlayerThree") && Manager.scorePlayer3 != 0)
         {
             Manager.scorePlayer3 -= 1;
             Manager.MesJoueurs.Remove("PlayerThree");
-
         }
-        //if (collision.CompareTag("PlayerFour"))
+        //if (collision.CompareTag("PlayerFour")&& Manager.scorePlayer4 != 0)
         //{
         //    Manager.scorePlayer4 -= 1;
+        //    Manager.MesJoueurs.Remove("PlayerFour");
         //}
 
+    }
 
-        // Reset the scene after each point
+    public void ResetTheRound()
+    {
 
-        if (Manager.MesJoueurs.Count == 1)
-        {
-            Manager.MesJoueurs.Clear();
-            SceneManager.LoadScene(0);
-            // Manager.MesJoueurs.Clear();
-
-        }
-
-
-
+        // Reset the scene
+        Manager.MesJoueurs.Clear();
+        SceneManager.LoadScene(0);
+   
     }
 
 
@@ -86,23 +88,52 @@ public class Arena : MonoBehaviour
     private void ResetTheGame()
     {
 
-        /*(Manager.scorePlayer1 >= numberOfRounds || Manager.scorePlayer2 >= numberOfRounds)*/
-        //if ((Manager.scorePlayer1 == 0 || Manager.scorePlayer2 == 0 || Manager.scorePlayer3 == 0 || Manager.scorePlayer4 == 0) && !Manager.timeBetween2Rounds.keepWaiting) 
+        // A big K+U is necessary
+
+
+        //if (Manager.scorePlayer1 == 0 && Manager.scorePlayer2 == 0 && Manager.scorePlayer3 == 0)
         //{
-
-        //    Manager.scorePlayer1 = 3;
-        //    Manager.scorePlayer2 = 3;
-        //    Manager.scorePlayer3 = 3;
-        //    Manager.scorePlayer4 = 3;
-
-        //    Manager.WinnerPlayer = "";
-
-        //    SceneManager.LoadScene(0);
-
+        //    Manager.WinnerPlayer = "Player 4 won";
+        //    EndOfGame = true;
         //}
+        if (Manager.scorePlayer1 == 0 && Manager.scorePlayer2 == 0 /*&& Manager.scorePlayer4 == 0*/)
+        {
+            Manager.WinnerPlayer = "Player 3 won";
+            EndOfGame = true;
+        }
+        if (/*Manager.scorePlayer4 == 0 &&*/ Manager.scorePlayer3 == 0 && Manager.scorePlayer1 == 0)
+        {
+            Manager.WinnerPlayer = "Player 2 won";
+            EndOfGame = true;
+        }
+        if (/*Manager.scorePlayer4 == 0 &&*/ Manager.scorePlayer2 == 0 && Manager.scorePlayer3 == 0)
+        {
+            Manager.WinnerPlayer = "Player 1 won";
+            EndOfGame = true;
+        }
 
-        //if (!Manager.timeBetween2Rounds.keepWaiting)
+        if(EndOfGame && !Manager.timeBetween2Rounds.keepWaiting)
+        {
+            Manager.scorePlayer1 = 3;
+            Manager.scorePlayer2 = 3;
+            Manager.scorePlayer3 = 3;
+            Manager.scorePlayer4 = 3;
+
+            Manager.WinnerPlayer = "";
+
+            EndOfGame = false;
+
+            SceneManager.LoadScene(0);
+
+            
+
+        }
+
+
+        /*(Manager.scorePlayer1 >= numberOfRounds || Manager.scorePlayer2 >= numberOfRounds)*/
+        //if ((Manager.scorePlayer1 == 0 || Manager.scorePlayer2 == 0 || Manager.scorePlayer3 == 0 || Manager.scorePlayer4 == 0) && !Manager.timeBetween2Rounds.keepWaiting)
         //{
+
         //    Manager.scorePlayer1 = 3;
         //    Manager.scorePlayer2 = 3;
         //    Manager.scorePlayer3 = 3;
@@ -111,6 +142,7 @@ public class Arena : MonoBehaviour
         //    Manager.WinnerPlayer = "";
 
         //    SceneManager.LoadScene(0);
+
         //}
 
     }

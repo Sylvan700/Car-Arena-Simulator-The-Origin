@@ -44,10 +44,8 @@ public static class Manager
         //    WinnerPlayer = "Player 4 lose";
         //}
 
-        if (MesJoueurs.Count == 1)
-            WinnerPlayer = MesJoueurs[0] + " won";
-
-
+        //if (MesJoueurs.Count == 1)
+        //    WinnerPlayer = MesJoueurs[0] + " won";
 
     }
 

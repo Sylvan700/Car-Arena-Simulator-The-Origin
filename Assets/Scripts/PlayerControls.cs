@@ -14,17 +14,11 @@ public class PlayerControls : VehiculeTemplate
 
         if (inputSwitch)
         {
-            if (index == vehicules.Count)
+            if (index == vehicules.Count - 1)
                 index = 0;
 
             else { index++; }
 
-            if(index == 1)
-            {
-                bodyCar.mass = 2f;
-                speed = 450;
-            }
-            
         }
 
         if(index == 0)
@@ -53,6 +47,7 @@ public class PlayerControls : VehiculeTemplate
             transform.localScale = new Vector3(0.08363746f, -0.074713f, 1.0f);
             body.offset = new Vector2(-6.490071f, 1.036186f);
             body.size = new Vector2(5.119109f, 8.594376f);
+            bodyCar.mass = 2.0f;
             bodyCar.drag = 2f;
             bodyCar.angularDrag = 20;
             maxSpeed = 150;
@@ -65,12 +60,11 @@ public class PlayerControls : VehiculeTemplate
         }
         if(index == 2)
         {
-
+            // Toutes les stats du pope
         }
 
-        // Change sprites, stats, ...
-
     }
+
 
     public void Capacity()
     {
@@ -90,8 +84,8 @@ public class PlayerControls : VehiculeTemplate
                 {
 
                     GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.2f);
-                   // visual = GetComponent<SpriteRenderer>();
-                    //visual.enabled = false;
+                    // visual = GetComponent<SpriteRenderer>();
+                    // visual.enabled = false;
 
                     
                     capacityIsActive = true;
@@ -182,8 +176,6 @@ public class PlayerControls : VehiculeTemplate
 
                 }
 
-
-
                 break;
 
         }    
@@ -194,62 +186,93 @@ public class PlayerControls : VehiculeTemplate
     new public void Update()
     {
 
-        switch (player.name)
+        if(Manager.MesJoueurs.Count > 1)
         {
 
-            case "PlayerOne":
+            switch (player.name)
+            {
 
-                inputX = Input.GetAxis("Horizontal");
-                inputY = Input.GetAxis("Vertical");
-                inputAction = Input.GetAxis("Jump");
-                inputSwitch = Input.GetKeyDown(KeyCode.G);
-                
+                case "PlayerOne":
 
-                Manager.nomPersoPlayer1 = player.name + "  " + vehicules[index];
+                    inputX = Input.GetAxis("Horizontal");
+                    inputY = Input.GetAxis("Vertical");
+                    inputAction = Input.GetAxis("Jump");
+                    inputSwitch = Input.GetKeyDown(KeyCode.G);
 
-                SwitchHero();
-                Capacity();        
 
-                break;
+                    Manager.nomPersoPlayer1 = player.name + "  " + vehicules[index];
 
-            case "PlayerTwo":
-                inputX = Input.GetAxis("Horizontal2");
-                inputY = Input.GetAxis("Vertical2");
-                inputAction = Input.GetAxis("Jump2");
-                // inputSwitch = Input.GetAxis("Change2");
-                
+                    SwitchHero();
+                    Capacity();
 
-                Manager.nomPersoPlayer2 = player.name + "  " + vehicules[index];
+                    break;
 
-                SwitchHero();
-                Capacity();           
+                case "PlayerTwo":
+                    inputX = Input.GetAxis("Horizontal2");
+                    inputY = Input.GetAxis("Vertical2");
+                    inputAction = Input.GetAxis("Jump2");
+                    // inputSwitch = Input.GetAxis("Change2");
 
-                break;
 
-            case "PlayerThree":
-                inputX = Input.GetAxis("Horizontal3");
-                inputY = Input.GetAxis("Vertical3");
-                inputAction = Input.GetAxis("Jump3");
-                // inputSwitch = Input.GetAxis("Change3");
+                    Manager.nomPersoPlayer2 = player.name + "  " + vehicules[index];
 
-                SwitchHero();
-                Capacity();
+                    SwitchHero();
+                    Capacity();
 
-                break;
+                    break;
 
-            case "PlayerFour":
-                inputX = Input.GetAxis("Horizontal4");
-                inputY = Input.GetAxis("Vertical4");
-                inputAction = Input.GetAxis("Jump4");
-                // inputSwitch = Input.GetAxis("Change4");
+                case "PlayerThree":
+                    inputX = Input.GetAxis("Horizontal3");
+                    inputY = Input.GetAxis("Vertical3");
+                    inputAction = Input.GetAxis("Jump3");
+                    // inputSwitch = Input.GetAxis("Change3");
 
-                SwitchHero();
-                Capacity();
+                    SwitchHero();
+                    Capacity();
 
-                break;
+                    break;
+
+                case "PlayerFour":
+                    inputX = Input.GetAxis("Horizontal4");
+                    inputY = Input.GetAxis("Vertical4");
+                    inputAction = Input.GetAxis("Jump4");
+                    // inputSwitch = Input.GetAxis("Change4");
+
+                    SwitchHero();
+                    Capacity();
+
+                    break;
+
+            }
 
         }
-        
+        else
+        {
+            inputX = 0;
+            inputY = 0;
+        }
+
+        if (Manager.scorePlayer1 == 0 && gameObject.name == "PlayerOne")
+        {
+            Destroy(gameObject);
+            Manager.MesJoueurs.Remove("PlayerOne");
+        }
+
+        if (Manager.scorePlayer2 == 0 && gameObject.name == "PlayerTwo")
+        {
+            Destroy(gameObject);
+            Manager.MesJoueurs.Remove("PlayerTwo");
+        }
+        if (Manager.scorePlayer3 == 0 && gameObject.name == "PlayerThree")
+        {
+            Destroy(gameObject);
+            Manager.MesJoueurs.Remove("PlayerThree");
+        }
+        //if (Manager.scorePlayer4 == 0 && gameObject.name == "PlayerFour")
+        //{
+        //    Destroy(gameObject);
+        //    Manager.MesJoueurs.Remove("PlayerFour");
+        //}
     }
 
     // Fixed Update is an Update at 50 frames per second mainly used for physics interactions in the unity engine
