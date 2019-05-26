@@ -14,32 +14,33 @@ public class PlayerControls : VehiculeTemplate
 
         if (inputSwitch)
         {
-            if (index == vehicules.Count)
+            if (index == vehicules.Count - 1)
+            {
                 index = 0;
-
+            }
             else { index++; }
 
-            if(index == 1)
+            // Seul moyen trouver actuellement pour rendre actif les effets du pouvoir de Loli car
+            if (index == 1)
             {
-                bodyCar.mass = 2f;
+                bodyCar.mass = 2.0f;
                 speed = 450;
             }
-            
         }
 
-        if(index == 0)
+        if (index == 0)
         {
             visual = GetComponent<SpriteRenderer>();
             body = GetComponent<CapsuleCollider2D>();
-
             GetComponent<Sprite>();
             visual.sprite = skin1;
-            transform.localScale = new Vector3(0.1592456f, -0.1279333f, 1.0f);
-            body.offset = new Vector2(-0.2479172f, 0.1459049f);
-            body.size = new Vector2(1.686367f, 4.281521f);
+
+            transform.localScale = new Vector3(0.08299329f, -0.06767181f, 1.0f);
+            body.offset = new Vector2(-0.04361433f, -0.745313f);
+            body.size = new Vector2(2.843039f, 8.518582f);
             bodyCar.mass = 1.2f;
             bodyCar.drag = 1.2f;
-            bodyCar.angularDrag = 20;
+            bodyCar.angularDrag = 15;
             speed = 500;
             maxSpeed = 150;
             rotationForce = 100;
@@ -49,28 +50,56 @@ public class PlayerControls : VehiculeTemplate
         {
             visual = GetComponent<SpriteRenderer>();
             GetComponent<Sprite>();
-            //visual.sprite = skin2;
-            transform.localScale = new Vector3(0.08363746f, -0.074713f, 1.0f);
-            body.offset = new Vector2(-6.490071f, 1.036186f);
-            body.size = new Vector2(5.119109f, 8.594376f);
+
+            visual.sprite = skin2;
+            transform.localScale = new Vector3(0.08845746f, -0.07332288f, 1.0f);
+            body.offset = new Vector2(-0.004523372f, 0.7820628f);
+            body.size = new Vector2(5.033408f, 8.053495f);
             bodyCar.drag = 2f;
             bodyCar.angularDrag = 20;
             maxSpeed = 150;
             rotationForce = 100;
             steering = 50;
 
-            visual = GetComponent<SpriteRenderer>();
-            GetComponent<Sprite>();
-            visual.sprite = skin2;
         }
-        if(index == 2)
+        if (index == 2)
         {
+            visual = GetComponent<SpriteRenderer>();
+            body = GetComponent<CapsuleCollider2D>();
+            GetComponent<Sprite>();
+            visual.sprite = skin3;
 
+            transform.localScale = new Vector3(0.08142736F, -0.06519713F, 1.0f);
+            body.offset = new Vector2(0.009010849f, -0.8925144f);
+            body.size = new Vector2(3.588842f, 8.480232f);
+            bodyCar.mass = 1.5f;
+            bodyCar.drag = 1.5f;
+            bodyCar.angularDrag = 25;
+            speed = 450;
+            maxSpeed = 150;
+            rotationForce = 150;
+            steering = 45;
         }
+        if (index == 3)
+        {
+            visual = GetComponent<SpriteRenderer>();
+            body = GetComponent<CapsuleCollider2D>();
+            GetComponent<Sprite>();
+            visual.sprite = skin4;
 
-        // Change sprites, stats, ...
-
+            transform.localScale = new Vector3(0.075381f, -0.09205688f, 1.0f);
+            body.offset = new Vector2(0.03796446f, -0.2615033f);
+            body.size = new Vector2(2.516712f, 9.137218f);
+            bodyCar.mass = 0.8f;
+            bodyCar.drag = 1.2f;
+            bodyCar.angularDrag = 30;
+            speed = 480;
+            maxSpeed = 150;
+            rotationForce = 100;
+            steering = 50;
+        }
     }
+
 
     public void Capacity()
     {
@@ -86,14 +115,12 @@ public class PlayerControls : VehiculeTemplate
 
             case "Sodic":
 
-                if (inputAction != 0 && cooldown > 5) 
+                if (inputAction != 0 && cooldown > 5)
                 {
 
                     GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.2f);
-                   // visual = GetComponent<SpriteRenderer>();
-                    //visual.enabled = false;
 
-                    
+
                     capacityIsActive = true;
                     collision = GetComponent<Collider2D>();
                     collision.isTrigger = true;
@@ -108,7 +135,7 @@ public class PlayerControls : VehiculeTemplate
                 {
 
                     GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
-      
+
                     collision = GetComponent<Collider2D>();
                     collision.isTrigger = false;
                     capacityIsActive = false;
@@ -120,7 +147,7 @@ public class PlayerControls : VehiculeTemplate
 
             case "Loli":
 
-                if(inputY == 1f)
+                if (inputY == 1f)
                 {
                     visual.sprite = skin5;
                 }
@@ -129,16 +156,16 @@ public class PlayerControls : VehiculeTemplate
                     visual.sprite = skin2;
                 }
 
-                if (inputAction != 0 && cooldown > 7) 
+                if (inputAction != 0 && cooldown > 7)
                 {
 
-                   GetComponent<SpriteRenderer>().color = new Color(0f, 237f, 255f, 255f);
+                    GetComponent<SpriteRenderer>().color = new Color(0f, 237f, 255f, 255f);
 
                     capacityIsActive = true;
 
                     bodyCar = GetComponent<Rigidbody2D>();
-                    bodyCar.mass = 5;
-                    speed = 1000;
+                    bodyCar.mass = 10.0F;
+                    speed = 1500;
 
                     cooldown = 0;
 
@@ -149,7 +176,7 @@ public class PlayerControls : VehiculeTemplate
 
                     GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
 
-                    bodyCar.mass = 2F;
+                    bodyCar.mass = 2.0F;
                     speed = 450;
 
                     capacityIsActive = false;
@@ -182,74 +209,133 @@ public class PlayerControls : VehiculeTemplate
 
                 }
 
-
-
                 break;
 
-        }    
-        
-    }
+            case "Pork":
+
+                if (inputY == 1f)
+                {
+                    visual.sprite = skin6;
+                }
+                else
+                {
+                    visual.sprite = skin4;
+                }
 
 
-    new public void Update()
-    {
+                if (inputAction != 0 && cooldown > 7)
+                {
 
-        switch (player.name)
-        {
 
-            case "PlayerOne":
+                    capacityIsActive = true;
 
-                inputX = Input.GetAxis("Horizontal");
-                inputY = Input.GetAxis("Vertical");
-                inputAction = Input.GetAxis("Jump");
-                inputSwitch = Input.GetKeyDown(KeyCode.G);
-                
+                    cooldown = 0;
 
-                Manager.nomPersoPlayer1 = player.name + "  " + vehicules[index];
+                }
 
-                SwitchHero();
-                Capacity();        
+                if (timeCapacity > 2.0F)
+                {
 
-                break;
+                    capacityIsActive = false;
 
-            case "PlayerTwo":
-                inputX = Input.GetAxis("Horizontal2");
-                inputY = Input.GetAxis("Vertical2");
-                inputAction = Input.GetAxis("Jump2");
-                // inputSwitch = Input.GetAxis("Change2");
-                
+                    timeCapacity = 0;
 
-                Manager.nomPersoPlayer2 = player.name + "  " + vehicules[index];
-
-                SwitchHero();
-                Capacity();           
-
-                break;
-
-            case "PlayerThree":
-                inputX = Input.GetAxis("Horizontal3");
-                inputY = Input.GetAxis("Vertical3");
-                inputAction = Input.GetAxis("Jump3");
-                // inputSwitch = Input.GetAxis("Change3");
-
-                SwitchHero();
-                Capacity();
-
-                break;
-
-            case "PlayerFour":
-                inputX = Input.GetAxis("Horizontal4");
-                inputY = Input.GetAxis("Vertical4");
-                inputAction = Input.GetAxis("Jump4");
-                // inputSwitch = Input.GetAxis("Change4");
-
-                SwitchHero();
-                Capacity();
+                }
 
                 break;
 
         }
-        
+
+    }
+
+    public void Update()
+    {
+        // Player 3 & 4 n'on pas accès au changement de perso pour l'instant, a corriger dans un avenir proche
+        if (Manager.MesJoueurs.Count > 1)
+        {
+
+            switch (player.name)
+            {
+
+                case "PlayerOne":
+
+                    inputX = Input.GetAxis("Horizontal");
+                    inputY = Input.GetAxis("Vertical");
+                    inputAction = Input.GetAxis("Jump");
+                    inputSwitch = Input.GetKeyDown(KeyCode.G);
+
+                    Manager.nomPersoPlayer1 = player.name + "  " + vehicules[index];
+
+                    SwitchHero();
+                    Capacity();
+
+                    break;
+
+                case "PlayerTwo":
+                    inputX = Input.GetAxis("Horizontal2");
+                    inputY = Input.GetAxis("Vertical2");
+                    inputAction = Input.GetAxis("Jump2");
+                    inputSwitch = Input.GetKeyDown(KeyCode.RightControl);
+
+                    Manager.nomPersoPlayer2 = player.name + "  " + vehicules[index];
+
+                    SwitchHero();
+                    Capacity();
+
+                    break;
+
+                case "PlayerThree":
+                    inputX = Input.GetAxis("Horizontal3");
+                    inputY = Input.GetAxis("Vertical3");
+                    inputAction = Input.GetAxis("Jump3");
+                    // inputSwitch = Input.GetAxis("Change3");
+
+                    SwitchHero();
+                    Capacity();
+
+                    break;
+
+                case "PlayerFour":
+                    inputX = Input.GetAxis("Horizontal4");
+                    inputY = Input.GetAxis("Vertical4");
+                    inputAction = Input.GetAxis("Jump4");
+                    // inputSwitch = Input.GetAxis("Change4");
+
+                    SwitchHero();
+                    Capacity();
+
+                    break;
+
+            }
+
+        }
+        else
+        {
+            inputX = 0;
+            inputY = 0;
+        }
+
+        if (Manager.scorePlayer1 == 0 && gameObject.name == "PlayerOne")
+        {
+            Destroy(gameObject);
+            Manager.MesJoueurs.Remove("PlayerOne");
+        }
+
+        if (Manager.scorePlayer2 == 0 && gameObject.name == "PlayerTwo")
+        {
+            Destroy(gameObject);
+            Manager.MesJoueurs.Remove("PlayerTwo");
+        }
+        if (Manager.scorePlayer3 == 0 && gameObject.name == "PlayerThree")
+        {
+            Destroy(gameObject);
+            Manager.MesJoueurs.Remove("PlayerThree");
+        }
+        if (Manager.scorePlayer4 == 0 && gameObject.name == "PlayerFour")
+        {
+            Destroy(gameObject);
+            Manager.MesJoueurs.Remove("PlayerFour");
+        }
     }
 
     // Fixed Update is an Update at 50 frames per second mainly used for physics interactions in the unity engine

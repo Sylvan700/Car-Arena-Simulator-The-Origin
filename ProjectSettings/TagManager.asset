@@ -9,6 +9,7 @@ TagManager:
   - PlayerTwo
   - LavaTrap
   - PlayerThree
+  - PlayerFour
   layers:
   - Default
   - TransparentFX
