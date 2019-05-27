@@ -7,19 +7,6 @@ public class Bumper : MonoBehaviour
 
     public float BumpForce = 1;
 
-    void Start()
-    {
-        
-    }
-
-
-
-    void Update()
-    {
-        
-    }
-
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
 

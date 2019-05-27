@@ -20,13 +20,19 @@ public class SpeedBoost : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        Debug.Log("Speed boost");
+        if(collision.gameObject.CompareTag("PlayerOne") || collision.gameObject.CompareTag("PlayerTwo") || collision.gameObject.CompareTag("PlayerFour"))
+        {
+            collision.attachedRigidbody.AddRelativeForce(Vector3.up * Boost * 10000 * Time.deltaTime);
+        }
+        else
+        {
+            collision.attachedRigidbody.AddRelativeForce(-Vector3.up * Boost * 10000 * Time.deltaTime);
+        }
 
-        collision.attachedRigidbody.AddRelativeForce(Vector3.up * Boost * 10000 * Time.deltaTime);
 
         // collision.gameObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector3.up * 1000 * Time.deltaTime);
 
-       // .AddRelativeForce(Vector3.up * inputY * speed * Time.deltaTime);
+        // .AddRelativeForce(Vector3.up * inputY * speed * Time.deltaTime);
 
     }
 

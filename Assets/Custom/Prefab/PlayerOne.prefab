@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6752994739558629226}
   - component: {fileID: 6752994739558629224}
   - component: {fileID: 6752994739558629236}
+  - component: {fileID: 1374701394}
   m_Layer: 0
   m_Name: PlayerOne
   m_TagString: PlayerOne
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6752994739558629231}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -8.741, y: -0.04, z: 0}
-  m_LocalScale: {x: 0.1592455, y: -0.1279332, z: 1}
+  m_LocalScale: {x: 0.08299329, y: -0.067671806, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -69,13 +70,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 796992e221c207d46979255b026b6300, type: 3}
+  m_SortingOrder: 4
+  m_Sprite: {fileID: 21300000, guid: 6ee7adeae51e48344aa35c275d294608, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 38.399998, y: 21.599998}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -93,9 +94,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.5
-  m_LinearDrag: 1.5
-  m_AngularDrag: 10
+  m_Mass: 1.2
+  m_LinearDrag: 1.2
+  m_AngularDrag: 20
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 1
@@ -115,19 +116,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyCar: {fileID: 6752994739558629224}
-  speed: 450
-  maxSpeed: 200
-  rotationForce: 40
-  steering: 10
+  speed: 500
+  maxSpeed: 150
+  rotationForce: 100
+  steering: 50
   player: {fileID: 6752994739558629231}
+  bumpCapacity: {fileID: 0}
   collision: {fileID: 0}
   body: {fileID: 0}
   visual: {fileID: 0}
-  skin1: {fileID: 0}
-  skin2: {fileID: 0}
-  skin3: {fileID: 0}
-  skin4: {fileID: 0}
+  skin1: {fileID: 21300000, guid: 6ee7adeae51e48344aa35c275d294608, type: 3}
+  skin2: {fileID: 21300000, guid: af82f7be9dbfa084da7879a7c86dfd4e, type: 3}
+  skin3: {fileID: 21300000, guid: 9460b5ba5f11b3f4dab6c8df5bfe34be, type: 3}
+  skin4: {fileID: 21300000, guid: 70c4597d10772d443b6a874a8ef2d999, type: 3}
+  skin5: {fileID: 21300000, guid: 87844df76b726144d86e33a470b294b8, type: 3}
+  skin6: {fileID: 0}
   timeCapacity: 0
   cooldown: 0
   capacityIsActive: 0
   cooldownActive: 1
+--- !u!70 &1374701394
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6752994739558629231}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 6aa974e03e4454a41898aaf82d5814c7, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.04361433, y: -0.745313}
+  m_Size: {x: 2.8430386, y: 8.518582}
+  m_Direction: 0

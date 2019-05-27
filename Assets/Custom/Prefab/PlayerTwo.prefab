@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2620700896718001237}
   - component: {fileID: 2620700896718001239}
   - component: {fileID: 3766187643066088905}
+  - component: {fileID: 2113818981}
   m_Layer: 0
   m_Name: PlayerTwo
   m_TagString: PlayerTwo
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2620700896718001232}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 8.741, y: -0.039, z: 0}
-  m_LocalScale: {x: 0.15924554, y: -0.1279332, z: 1}
+  m_LocalScale: {x: 0.08142736, y: -0.06519713, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -69,13 +70,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 796992e221c207d46979255b026b6300, type: 3}
-  m_Color: {r: 1, g: 0.3537736, b: 0.3537736, a: 1}
+  m_SortingOrder: 4
+  m_Sprite: {fileID: 21300000, guid: 9460b5ba5f11b3f4dab6c8df5bfe34be, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 7, y: 10.84}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -120,14 +121,32 @@ MonoBehaviour:
   rotationForce: 40
   steering: 10
   player: {fileID: 2620700896718001232}
+  bumpCapacity: {fileID: 0}
   collision: {fileID: 0}
   body: {fileID: 0}
   visual: {fileID: 0}
-  skin1: {fileID: 0}
-  skin2: {fileID: 0}
-  skin3: {fileID: 0}
-  skin4: {fileID: 0}
+  skin1: {fileID: 21300000, guid: 6ee7adeae51e48344aa35c275d294608, type: 3}
+  skin2: {fileID: 21300000, guid: af82f7be9dbfa084da7879a7c86dfd4e, type: 3}
+  skin3: {fileID: 21300000, guid: 9460b5ba5f11b3f4dab6c8df5bfe34be, type: 3}
+  skin4: {fileID: 21300000, guid: 70c4597d10772d443b6a874a8ef2d999, type: 3}
+  skin5: {fileID: 21300000, guid: 87844df76b726144d86e33a470b294b8, type: 3}
   timeCapacity: 0
   cooldown: 0
   capacityIsActive: 0
   cooldownActive: 1
+--- !u!70 &2113818981
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2620700896718001232}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 6aa974e03e4454a41898aaf82d5814c7, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.009010849, y: -0.8925144}
+  m_Size: {x: 3.5888417, y: 8.480232}
+  m_Direction: 0
